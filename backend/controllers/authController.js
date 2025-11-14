@@ -95,6 +95,8 @@ const login = async (req, res) => {
         message: 'رقم الجوال أو كلمة المرور غير صحيحة'
       });
     }
+    
+    console.log(`✅ User login successful: ${user.mobileNumber}`);
 
     // إنشاء token
     const token = generateToken(user._id);

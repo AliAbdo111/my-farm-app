@@ -43,14 +43,29 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.json({ 
     message: 'My Farm API is running',
-    version: '1.0.0'
+    version: '1.0.0',
+    database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+    dbName: mongoose.connection.name || 'not connected'
   });
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  const dbStatus = mongoose.connection.readyState;
+  const status = {
+    api: 'running',
+    database: dbStatus === 1 ? 'connected' : 'disconnected',
+    dbName: mongoose.connection.name || 'not connected',
+    timestamp: new Date().toISOString()
+  };
+  
+  res.status(dbStatus === 1 ? 200 : 503).json(status);
 });
 
 app.use('/api/farm', farmRoutes);
 
 // Connect to MongoDB
-const mongoURI = process.env.MONGO_URI || 'mongodb+srv://Aliomran_11:aliomran11@bookstore.2p8vi6j.mongodb.net/my-farm?retryWrites=true&w=majority';
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://Aliomran_11:aliomran11@bookstore.2p8vi6j.mongodb.net/my-farmn?retryWrites=true&w=majority';
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
