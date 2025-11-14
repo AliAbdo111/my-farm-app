@@ -1,0 +1,239 @@
+.cow-list {
+  margin-top: 30px;
+}
+
+.cow-list h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.cows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.cow-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.cow-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cow-card.sold {
+  opacity: 0.7;
+  background: #e9ecef;
+}
+
+.sold-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #dc3545;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.cow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.cow-info-main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cow-color {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+  width: fit-content;
+}
+
+.cow-age {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.cow-status {
+  background: #28a745;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.cow-card.sold .cow-status {
+  background: #dc3545;
+}
+
+.cow-body {
+  margin-bottom: 15px;
+}
+
+.cow-field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 8px 0;
+}
+
+.cow-field:last-child {
+  margin-bottom: 0;
+}
+
+.field-label {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.field-value {
+  color: #333;
+  text-align: left;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.field-value.sale-price {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.cow-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #dee2e6;
+}
+
+.cow-actions .btn {
+  flex: 1;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.empty-hint {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cow-list h2 {
+    font-size: 1.3rem;
+  }
+
+  .cows-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .cow-card {
+    padding: 15px;
+  }
+
+  .cow-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cow-field {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .field-value {
+    text-align: right;
+    margin-right: 0;
+  }
+
+  .cow-actions {
+    flex-direction: column;
+  }
+
+  .cow-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cow-list {
+    margin-top: 20px;
+  }
+
+  .cow-list h2 {
+    font-size: 1.2rem;
+  }
+
+  .cow-card {
+    padding: 12px;
+  }
+
+  .cow-color {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .field-label,
+  .field-value {
+    font-size: 0.85rem;
+  }
+}
+
