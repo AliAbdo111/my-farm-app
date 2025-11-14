@@ -49,8 +49,12 @@ function LoginForm({ onLogin }) {
         setError(data.message || 'حدث خطأ');
       }
     } catch (err) {
-      setError('حدث خطأ أثناء الاتصال بالخادم');
       console.error('Error:', err);
+      if (err.message && err.message.includes('Failed to fetch')) {
+        setError('تعذر الاتصال بالخادم. يرجى التحقق من الاتصال بالإنترنت أو أن الخادم يعمل.');
+      } else {
+        setError('حدث خطأ أثناء الاتصال بالخادم');
+      }
     } finally {
       setLoading(false);
     }
