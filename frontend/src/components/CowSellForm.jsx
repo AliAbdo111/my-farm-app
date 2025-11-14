@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../config';
 import './CowSellForm.css';
 
 function CowSellForm({ cow, token, onClose }) {
@@ -22,7 +23,7 @@ function CowSellForm({ cow, token, onClose }) {
     setError('');
 
     try {
-      const response = await fetch(`http://localhost:5000/api/farm/cows/${cow._id}/sell`, {
+      const response = await fetch(`${API_BASE_URL}/api/farm/cows/${cow._id}/sell`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 app.use('/api/farm', farmRoutes);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://Aliomran_11:aliomran11@bookstore.2p8vi6j.mongodb.net/my-farm', {
+mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://Aliomran_11:aliomran11@bookstore.2p8vi6j.mongodb.net/my-farmn', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

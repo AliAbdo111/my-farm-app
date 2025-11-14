@@ -7,6 +7,7 @@ import CowForm from './components/CowForm';
 import CowSellForm from './components/CowSellForm';
 import CowStats from './components/CowStats';
 import LoginForm from './components/LoginForm';
+import { API_BASE_URL } from './config';
 import './App.css';
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
     
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/farm/expenses', {
+      const response = await fetch(`${API_BASE_URL}/api/farm/expenses`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -65,7 +66,7 @@ function App() {
     if (!token) return;
     
     try {
-      const response = await fetch('http://localhost:5000/api/farm/expenses/stats', {
+      const response = await fetch(`${API_BASE_URL}/api/farm/expenses/stats`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -87,7 +88,7 @@ function App() {
     
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/farm/cows', {
+      const response = await fetch(`${API_BASE_URL}/api/farm/cows`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -110,7 +111,7 @@ function App() {
     if (!token) return;
     
     try {
-      const response = await fetch('http://localhost:5000/api/farm/cows/stats', {
+      const response = await fetch(`${API_BASE_URL}/api/farm/cows/stats`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -165,7 +166,7 @@ function App() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/farm/expenses/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/farm/expenses/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -220,7 +221,7 @@ function App() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/farm/cows/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/farm/cows/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

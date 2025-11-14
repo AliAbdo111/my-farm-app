@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 import './ExpenseForm.css';
 
 const categoryNames = {
@@ -50,8 +51,8 @@ function ExpenseForm({ expense, token, onClose }) {
 
     try {
       const url = expense
-        ? `http://localhost:5000/api/farm/expenses/${expense._id}`
-        : 'http://localhost:5000/api/farm/expenses';
+        ? `${API_BASE_URL}/api/farm/expenses/${expense._id}`
+        : `${API_BASE_URL}/api/farm/expenses`;
       
       const method = expense ? 'PUT' : 'POST';
 

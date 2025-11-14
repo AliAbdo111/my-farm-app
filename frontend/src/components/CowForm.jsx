@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 import './CowForm.css';
 
 function CowForm({ cow, token, onClose }) {
@@ -44,8 +45,8 @@ function CowForm({ cow, token, onClose }) {
 
     try {
       const url = cow
-        ? `http://localhost:5000/api/farm/cows/${cow._id}`
-        : 'http://localhost:5000/api/farm/cows';
+        ? `${API_BASE_URL}/api/farm/cows/${cow._id}`
+        : `${API_BASE_URL}/api/farm/cows`;
       
       const method = cow ? 'PUT' : 'POST';
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from '../config';
 import './LoginForm.css';
 
 function LoginForm({ onLogin }) {
@@ -26,7 +27,7 @@ function LoginForm({ onLogin }) {
 
     try {
       const endpoint = isLogin ? '/api/farm/auth/login' : '/api/farm/auth/register';
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
