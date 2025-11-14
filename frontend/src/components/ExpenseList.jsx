@@ -2,13 +2,13 @@ import React from 'react';
 import './ExpenseList.css';
 
 const categoryNames = {
-  rent: 'إيجار',
-  land: 'أرض',
+  rent_land: 'إيجار وأرض',
   plowing: 'حرث',
   doctor: 'طبيب',
   feed: 'علف',
   construction: 'بناء',
-  maintenance: 'صيانة'
+  maintenance: 'صيانة',
+  seeds: 'تقاوي وبذور'
 };
 
 function ExpenseList({ expenses, loading, onEdit, onDelete }) {
@@ -55,10 +55,6 @@ function ExpenseList({ expenses, loading, onEdit, onDelete }) {
               <div className="expense-field">
                 <span className="field-label">الغرض:</span>
                 <span className="field-value">{expense.purpose}</span>
-              </div>
-              <div className="expense-field">
-                <span className="field-label">الإذن:</span>
-                <span className="field-value">{expense.permission}</span>
               </div>
               {expense.notes && (
                 <div className="expense-field">

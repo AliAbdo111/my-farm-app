@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './ExpenseForm.css';
 
 const categoryNames = {
-  rent: 'إيجار',
-  land: 'أرض',
+  rent_land: 'إيجار وأرض',
   plowing: 'حرث',
   doctor: 'طبيب',
   feed: 'علف',
   construction: 'بناء',
-  maintenance: 'صيانة'
+  maintenance: 'صيانة',
+  seeds: 'تقاوي وبذور'
 };
 
 function ExpenseForm({ expense, token, onClose }) {
@@ -16,7 +16,6 @@ function ExpenseForm({ expense, token, onClose }) {
     category: '',
     amount: '',
     purpose: '',
-    permission: '',
     notes: '',
     expenseDate: new Date().toISOString().split('T')[0]
   });
@@ -29,7 +28,6 @@ function ExpenseForm({ expense, token, onClose }) {
         category: expense.category || '',
         amount: expense.amount || '',
         purpose: expense.purpose || '',
-        permission: expense.permission || '',
         notes: expense.notes || '',
         expenseDate: expense.expenseDate 
           ? new Date(expense.expenseDate).toISOString().split('T')[0]
@@ -133,18 +131,6 @@ function ExpenseForm({ expense, token, onClose }) {
               id="purpose"
               name="purpose"
               value={formData.purpose}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="permission">الإذن *</label>
-            <input
-              type="text"
-              id="permission"
-              name="permission"
-              value={formData.permission}
               onChange={handleChange}
               required
             />

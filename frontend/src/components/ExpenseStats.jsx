@@ -2,13 +2,13 @@ import React from 'react';
 import './ExpenseStats.css';
 
 const categoryNames = {
-  rent: 'إيجار',
-  land: 'أرض',
+  rent_land: 'إيجار وأرض',
   plowing: 'حرث',
   doctor: 'طبيب',
   feed: 'علف',
   construction: 'بناء',
-  maintenance: 'صيانة'
+  maintenance: 'صيانة',
+  seeds: 'تقاوي وبذور'
 };
 
 function ExpenseStats({ stats }) {

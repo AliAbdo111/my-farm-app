@@ -3,19 +3,19 @@ const FarmExpense = require('../models/FarmExpense');
 // إنشاء مصروف جديد
 const createExpense = async (req, res) => {
   try {
-    const { category, amount, purpose, permission, notes, expenseDate } = req.body;
+    const { category, amount, purpose, notes, expenseDate } = req.body;
     const userId = req.userId;
 
     // التحقق من الحقول المطلوبة
-    if (!category || !amount || !purpose || !permission) {
+    if (!category || !amount || !purpose) {
       return res.status(400).json({
         success: false,
-        message: 'جميع الحقول مطلوبة: الفئة، المبلغ، الغرض، والإذن'
+        message: 'جميع الحقول مطلوبة: الفئة، المبلغ، والغرض'
       });
     }
 
     // التحقق من أن الفئة صحيحة
-    const validCategories = ['rent', 'land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance'];
+    const validCategories = ['rent_land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance', 'seeds'];
     if (!validCategories.includes(category)) {
       return res.status(400).json({
         success: false,
@@ -28,7 +28,6 @@ const createExpense = async (req, res) => {
       category,
       amount: Number(amount),
       purpose,
-      permission,
       notes: notes || '',
       expenseDate: expenseDate ? new Date(expenseDate) : new Date()
     });
@@ -134,7 +133,7 @@ const updateExpense = async (req, res) => {
   try {
     const { id } = req.params;
     const userId = req.userId;
-    const { category, amount, purpose, permission, notes, expenseDate } = req.body;
+    const { category, amount, purpose, notes, expenseDate } = req.body;
 
     const expense = await FarmExpense.findOne({ _id: id, userId });
 
@@ -147,7 +146,7 @@ const updateExpense = async (req, res) => {
 
     // تحديث الحقول
     if (category) {
-      const validCategories = ['rent', 'land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance'];
+      const validCategories = ['rent_land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance', 'seeds'];
       if (!validCategories.includes(category)) {
         return res.status(400).json({
           success: false,
@@ -158,7 +157,6 @@ const updateExpense = async (req, res) => {
     }
     if (amount !== undefined) expense.amount = Number(amount);
     if (purpose) expense.purpose = purpose;
-    if (permission) expense.permission = permission;
     if (notes !== undefined) expense.notes = notes;
     if (expenseDate) expense.expenseDate = new Date(expenseDate);
 

@@ -12,13 +12,13 @@
 
 ## الفئات المتاحة
 
-- إيجار (rent)
-- أرض (land)
+- إيجار وأرض (rent_land)
 - حرث (plowing)
 - طبيب (doctor)
 - علف (feed)
 - بناء (construction)
 - صيانة (maintenance)
+- تقاوي وبذور (seeds)
 
 ## التشغيل
 

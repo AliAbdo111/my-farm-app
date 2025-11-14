@@ -75,7 +75,7 @@
 }
 
 .cow-info strong {
-  color: #667eea;
+  color: #6B8E23;
 }
 
 .cow-sell-form {
@@ -106,7 +106,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #6B8E23;
 }
 
 .form-actions {
