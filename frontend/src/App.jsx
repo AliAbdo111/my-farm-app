@@ -42,7 +42,7 @@ function App() {
     
     setLoading(true);
     try {
-      const response = await fetch(`${API_BASE_URL}/farm/expenses`, {
+      const response = await fetch(`${API_BASE_URL}/api/farm/expenses`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ function App() {
     if (!token) return;
     
     try {
-      const response = await fetch(`${API_BASE_URL}/farm/expenses/stats`, {
+      const response = await fetch(`${API_BASE_URL}/api/farm/expenses/stats`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ function App() {
     
     setLoading(true);
     try {
-      const response = await fetch(`${API_BASE_URL}/farm/cows`, {
+      const response = await fetch(`${API_BASE_URL}/api/farm/cows`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -111,7 +111,7 @@ function App() {
     if (!token) return;
     
     try {
-      const response = await fetch(`${API_BASE_URL}/farm/cows/stats`, {
+      const response = await fetch(`${API_BASE_URL}/api/farm/cows/stats`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -166,7 +166,7 @@ function App() {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/farm/expenses/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/farm/expenses/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

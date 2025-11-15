@@ -65,7 +65,7 @@ app.get('/health', (req, res) => {
 app.use('/api/farm', farmRoutes);
 
 // Connect to MongoDB
-const mongoURI = process.env.MONGO_URI || 'mongodb+srv://Aliomran_11:aliomran11@bookstore.2p8vi6j.mongodb.net/my-farmn?retryWrites=true&w=majority';
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://Aliomran_11:aliomran11@bookstore.2p8vi6j.mongodb.net/my-farm?retryWrites=true&w=majority';
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
