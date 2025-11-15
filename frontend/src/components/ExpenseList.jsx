@@ -8,7 +8,8 @@ const categoryNames = {
   feed: 'علف',
   construction: 'بناء',
   maintenance: 'صيانة',
-  seeds: 'تقاوي وبذور'
+  seeds: 'تقاوي وبذور',
+  salaries: 'مرتبات'
 };
 
 function ExpenseList({ expenses, loading, onEdit, onDelete }) {
@@ -32,11 +33,12 @@ function ExpenseList({ expenses, loading, onEdit, onDelete }) {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('ar-SA', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 
+                    'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    return `${day} ${month} ${year}`;
   };
 
   return (

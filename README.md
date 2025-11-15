@@ -19,6 +19,7 @@
 - بناء (construction)
 - صيانة (maintenance)
 - تقاوي وبذور (seeds)
+- مرتبات (salaries)
 
 ## التشغيل
 

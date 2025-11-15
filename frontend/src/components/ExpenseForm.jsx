@@ -9,7 +9,8 @@ const categoryNames = {
   feed: 'علف',
   construction: 'بناء',
   maintenance: 'صيانة',
-  seeds: 'تقاوي وبذور'
+  seeds: 'تقاوي وبذور',
+  salaries: 'مرتبات'
 };
 
 function ExpenseForm({ expense, token, onClose }) {

@@ -15,7 +15,7 @@ const createExpense = async (req, res) => {
     }
 
     // التحقق من أن الفئة صحيحة
-    const validCategories = ['rent_land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance', 'seeds'];
+    const validCategories = ['rent_land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance', 'seeds', 'salaries'];
     if (!validCategories.includes(category)) {
       return res.status(400).json({
         success: false,
@@ -146,7 +146,7 @@ const updateExpense = async (req, res) => {
 
     // تحديث الحقول
     if (category) {
-      const validCategories = ['rent_land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance', 'seeds'];
+      const validCategories = ['rent_land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance', 'seeds', 'salaries'];
       if (!validCategories.includes(category)) {
         return res.status(400).json({
           success: false,

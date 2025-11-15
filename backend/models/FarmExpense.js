@@ -5,7 +5,7 @@ const FarmExpenseSchema = new mongoose.Schema({
   category: { 
     type: String, 
     required: true,
-    enum: ['rent_land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance', 'seeds']
+    enum: ['rent_land', 'plowing', 'doctor', 'feed', 'construction', 'maintenance', 'seeds', 'salaries']
   },
   amount: { type: Number, required: true },
   purpose: { type: String, required: true },
